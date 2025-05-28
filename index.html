@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <header>
+    <h1> Image Gallery</h1>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <button type="button" onclick="filterImages('all')" aria-pressed="true" id="btnAll">All</button>
+      <button type="button" onclick="filterImages('nature')" id="btnNature">Nature</button>
+      <button type="button" onclick="filterImages('flower')" id="btnFlower">Flower</button>
+      <button type="button" onclick="filterImages('animal')" id="btnAnimal">Animal</button>
+      <button type="button" onclick="filterImages('bird')" id="btnBird">Bird</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="Grid_image" id="gallery" aria-live="polite" aria-label="Filtered Gallery Images">
+        
+    </div>
+
+    <div class="addimage" aria-label="Add new image inputs">
+      <input type="text" id="imageURL" placeholder="Image URL" aria-label="Image URL" />
+      <select id="imageCategory" aria-label="Select image category">
+        <option value="nature">Nature</option>
+        <option value="flower">Flower</option>
+        <option value="animal">Animal</option>
+        <option value="bird">Bird</option>
+      </select>
+      <button type="button" onclick="addImage()">Add Image</button>
+    </div>
+
+    <section class="contact" id="contact" aria-label="Contact form">
+      <h2>Contact Me</h2>
+      <form id="contactForm" onsubmit="return validateForm()" novalidate>
+        <input type="text" id="name" placeholder="Your Name" aria-required="true" />
+        <input type="email" id="email" placeholder="Your Email" aria-required="true" />
+        <textarea id="message" placeholder="Your Message" aria-required="true"></textarea>
+        <button type="submit">Send</button>
+        <p id="formError" class="error-message" aria-live="assertive"></p>
+      </form>
+    </section>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>
